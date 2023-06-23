@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ButtonController : MonoBehaviour
+public class SecondButtonController : MonoBehaviour
 {
     public void SwitchScene()
     {
-        SceneManager.LoadScene("SampleScene", LoadSceneMode.Single);
+        SceneManager.LoadScene("Player2Scene");
     }
 }

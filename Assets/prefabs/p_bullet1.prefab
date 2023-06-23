@@ -10,13 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 7047017918106096069}
   - component: {fileID: 7047017918106096068}
-  - component: {fileID: 7047017918106096071}
+  - component: {fileID: 6689995450431696112}
   - component: {fileID: 7047017918106096070}
   - component: {fileID: 7047017918106096057}
   - component: {fileID: -6097540996294067476}
   m_Layer: 0
-  m_Name: bullet1
-  m_TagString: Untagged
+  m_Name: p_bullet1
+  m_TagString: bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88,8 +88,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &7047017918106096071
-PolygonCollider2D:
+--- !u!70 &6689995450431696112
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -101,27 +101,9 @@ PolygonCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.63, y: 0.32}
-    newSize: {x: 0.63, y: 0.32}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.024999999, y: 0.07}
-      - {x: -0.315, y: 0.04}
-      - {x: -0.315, y: -0.03}
-      - {x: -0.285, y: -0.07}
-      - {x: -0.035, y: -0.089999996}
-      - {x: 0.265, y: -0.089999996}
-      - {x: 0.295, y: -0.03}
-      - {x: 0.295, y: 0.049999997}
-      - {x: 0.275, y: 0.07}
+  m_Offset: {x: 0, y: -0.01}
+  m_Size: {x: 0.59, y: 0.13}
+  m_Direction: 1
 --- !u!50 &7047017918106096070
 Rigidbody2D:
   serializedVersion: 4

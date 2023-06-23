@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - wall
+  - enemy
+  - enemybullet
+  - bullet
+  - bullet2
+  - player1bullet
+  - player2bullet
   layers:
   - Default
   - TransparentFX

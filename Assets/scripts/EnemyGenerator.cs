@@ -1,37 +1,54 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyGenerator : MonoBehaviour
 {
-    [SerializeField] List<GameObject> _enemyList;    // 生成オブジェクト
-    [SerializeField] Transform _spawn1;                 // 生成位置
-    [SerializeField] Transform _spawn2;                // 生成位置
-    float minX, maxX, minY, maxY;                   // 生成範囲
+    [SerializeField]private GameObject createPrefab1;
+    [SerializeField]private GameObject createPrefab2;
+    [SerializeField]private Transform rangeA;
+    [SerializeField]private Transform rangeB;
+    [SerializeField]float e1_interval = 0;
+    [SerializeField]float e2_interval = 0;
 
-    int _time = 0;
-    [SerializeField] int _Interval = 5;        // 生成する間隔
+    // 経過時間
+    public float e1_time;
+    public float e2_time;
 
-    void Start()
-    {
-        minX = Mathf.Min(_spawn1.position.x, _spawn2.position.x);
-        maxX = Mathf.Max(_spawn1.position.x, _spawn2.position.x);
-        minY = Mathf.Min(_spawn1.position.y, _spawn2.position.y);
-        maxY = Mathf.Max(_spawn1.position.y, _spawn2.position.y);
-    }
-
+    // Update is called once per frame
     void Update()
     {
-        ++_time;
+        // 前フレームからの時間を加算していく
+        e1_time += Time.deltaTime;
+        e2_time += Time.deltaTime;
 
-        if (_time > _Interval)
+        // 約1秒置きにランダムに生成されるようにする。
+        if (e1_time > e1_interval)
         {
-            _time = 0;
-            int index = Random.Range(0,_enemyList.Count);
-            float posX = Random.Range(minX, maxX);
-            float posY = Random.Range(minY, maxY);
+            // rangeAとrangeBのx座標の範囲内でランダムな数値を作成
+            float x = Random.Range(rangeA.position.x, rangeB.position.x);
+            // rangeAとrangeBのy座標の範囲内でランダムな数値を作成
+            float y = Random.Range(rangeA.position.y, rangeB.position.y);
 
-            Instantiate(_enemyList[index], new Vector3(posX, posY, 0), Quaternion.identity);
+            // GameObjectを上記で決まったランダムな場所に生成
+            Instantiate(createPrefab1, new Vector2(x, y), createPrefab1.transform.rotation);
+
+            // 経過時間リセット
+            e1_time = 0f;
         }
-        //if(_) { }
+        if (e2_time > e2_interval)
+        {
+            // rangeAとrangeBのx座標の範囲内でランダムな数値を作成
+            float x = Random.Range(rangeA.position.x, rangeB.position.x);
+            // rangeAとrangeBのy座標の範囲内でランダムな数値を作成
+            float y = Random.Range(rangeA.position.y, rangeB.position.y);
+
+            // GameObjectを上記で決まったランダムな場所に生成
+            Instantiate(createPrefab2, new Vector2(x, y), createPrefab2.transform.rotation);
+
+            // 経過時間リセット
+            e2_time = 0f;
+        }
     }
+
 }

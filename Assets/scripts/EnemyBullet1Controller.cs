@@ -3,7 +3,7 @@ using UnityEngine;
 /// <summary>
 /// 弾丸を制御するコンポーネント
 /// </summary>
-public class BulletController : MonoBehaviour
+public class EnemyBullet1Controller : MonoBehaviour
 {
     /// <summary>弾が飛ぶ速さ</summary>
     [SerializeField] float m_speed = 3f;
@@ -12,17 +12,10 @@ public class BulletController : MonoBehaviour
 
     void Start()
     {
-        // 右方向に飛ばす
+        // 左方向に飛ばす
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        rb.velocity = Vector2.right * m_speed;
+        rb.velocity = Vector2.left * m_speed;
         // 生存期間が経過したら自分自身を破棄する
         Destroy(this.gameObject, m_lifeTime);
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.tag == "enemy") 
-        {
-            Destroy(this.gameObject);
-        }
     }
 }
