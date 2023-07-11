@@ -18,11 +18,4 @@ public class BulletController : MonoBehaviour
         // ¶‘¶ŠúŠÔ‚ªŒo‰ß‚µ‚½‚ç©•ª©g‚ğ”jŠü‚·‚é
         Destroy(this.gameObject, m_lifeTime);
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.tag == "enemy") 
-        {
-            Destroy(this.gameObject);
-        }
-    }
 }
